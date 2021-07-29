@@ -1,0 +1,26 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DockHeaderEdit"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="DockHeaderEdit.MainWindow"
+        mc:Ignorable="d"
+        Title="Edit Header Sample" Height="350" Width="525">
+	<Grid >
+		<syncfusion:DockingManager Name="docking" UseDocumentContainer="True" EnableDocumentTabHeaderEdit="True"  DockFill="True" Grid.Row="1" >
+		    <!-- Custom Context Menu for editing the Header -->
+			<syncfusion:DockingManager.DocumentTabItemContextMenuItems>
+				<syncfusion:DocumentTabItemMenuItemCollection>
+					<syncfusion:CustomMenuItem Header="Edit Header" x:Name="menu" IsCheckable="False" Click="CustomMenuItem_Click"/>
+				</syncfusion:DocumentTabItemMenuItemCollection>
+			</syncfusion:DockingManager.DocumentTabItemContextMenuItems>
+			<ContentControl syncfusion:DockingManager.Header="Tab1" syncfusion:DockingManager.State="Document"/>
+			<ContentControl syncfusion:DockingManager.Header="Tab2" syncfusion:DockingManager.State="Document"/>
+			<ContentControl syncfusion:DockingManager.Header="Tab3" syncfusion:DockingManager.State="Document"/>
+			<ContentControl syncfusion:DockingManager.Header="Tab4" syncfusion:DockingManager.State="Document"/>
+			<ContentControl syncfusion:DockingManager.Header="Tab5" syncfusion:DockingManager.State="Document"/>
+
+		</syncfusion:DockingManager>
+	</Grid>
+</Window>
