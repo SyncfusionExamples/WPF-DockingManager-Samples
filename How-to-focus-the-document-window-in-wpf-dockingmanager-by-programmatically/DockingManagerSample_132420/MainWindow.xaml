@@ -1,0 +1,27 @@
+﻿<Window x:Class="DockingManagerSample_132420.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DockingManagerSample_132420"
+        mc:Ignorable="d"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+                
+        <Button x:Name="focusbutton" Width="200" Content="Focus TabItem" Click="Button_Click_1" HorizontalAlignment="Center"/>
+
+        <syncfusion:DockingManager Grid.Row="1" x:Name="dockingManager" UseDocumentContainer="True">
+            <ContentControl x:Name="Item1" syncfusion:DockingManager.Header="DockTab1" syncfusion:DockingManager.State="Document"/>
+            <ContentControl x:Name="Item2" syncfusion:DockingManager.Header="DockTab2" syncfusion:DockingManager.State="Document"/>
+            <ContentControl x:Name="Item3" syncfusion:DockingManager.Header="DockTab3" syncfusion:DockingManager.State="Document"/>
+            <ContentControl x:Name="Item4" syncfusion:DockingManager.Header="DockTab4" syncfusion:DockingManager.State="Document"/>
+            <ContentControl x:Name="Item5" syncfusion:DockingManager.Header="DockTab5" syncfusion:DockingManager.State="Document"/>
+        </syncfusion:DockingManager>
+
+    </Grid>
+</Window>

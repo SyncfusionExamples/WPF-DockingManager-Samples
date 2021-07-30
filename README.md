@@ -17,3 +17,9 @@ Repository contains various WPF DockingManager samples
 14. [How to customize the header in the TabListContextMenu of WPF DockingManager?](https://www.syncfusion.com/kb/8700/how-to-customize-the-header-in-the-tablistcontextmenu-of-dockingmanager) - Demo
 15. [How to restrict the dockability of child window to client area in WPF DockingManager?](https://www.syncfusion.com/kb/8697/how-to-restrict-the-dockability-of-child-window-to-client-area-in-dockingmanager) - Demo
 16. [How to customize the header of native floatwindow in WPF DockingManager?](https://www.syncfusion.com/kb/8688/how-to-customize-the-header-of-native-floatwindow-in-dockingmanager) - Demo
+17. [How to disable the element which state is Document in WPF DockingManager?](https://www.syncfusion.com/kb/8657/how-to-disable-the-element-which-state-is-document-in-dockingmanager) - Demo
+18. [How to display tooltip to the header of the tabbed and MDI windows in WPF DockingManager?](https://www.syncfusion.com/kb/8655/how-to-display-tooltip-to-the-header-of-the-tabbed-and-mdi-windows-in-dockingmanager) - Demo
+19. [How to change the size of the buttons in HeaderTabPanel in WPF DockingManager?](https://www.syncfusion.com/kb/8567/how-to-change-the-size-of-the-buttons-in-headertabpanel-in-dockingmanager) - Demo
+20. [How to disable unloading of content in the DocumentTabItem in WPF DockingManager?](https://www.syncfusion.com/kb/8268/how-to-disable-unloading-of-content-in-the-documenttabitem-in-dockingmanager) - Demo
+21. [How to focus the document window in WPF DockingManager by programmatically?](https://www.syncfusion.com/kb/8232/how-to-focus-the-document-windowin-dockingmanager-by-programmatically) - Demo
+22. [How to customize WPF DockingManager as flatlayout control by disabling docking functionalities?](https://www.syncfusion.com/kb/8030/how-to-customize-dockingmanager-as-flatlayoutcontrol-by-disabling-docking-functionalities) - Demo

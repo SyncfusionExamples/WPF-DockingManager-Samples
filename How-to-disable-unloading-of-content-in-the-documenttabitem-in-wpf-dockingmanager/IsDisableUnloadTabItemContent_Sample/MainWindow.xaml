@@ -1,0 +1,15 @@
+﻿<Window xmlns:syncfusion="http://schemas.syncfusion.com/wpf"  x:Class="IsDisableUnloadTabItemContent_Sample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IsDisableUnloadTabItemContent_Sample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <syncfusion:DockingManager UseDocumentContainer="True" x:Name="dockingmanager" IsDisableUnloadTabItemContent="True">
+            <ContentControl x:Name="tab1" syncfusion:DockingManager.Header="DockTabItem1" syncfusion:DockingManager.State="Document" Unloaded="tab1_Unloaded"/>
+            <ContentControl x:Name="tab2" syncfusion:DockingManager.Header="DockTabItem2" syncfusion:DockingManager.State="Document" Unloaded="tab2_Unloaded"/>
+        </syncfusion:DockingManager>
+    </Grid>
+</Window>
