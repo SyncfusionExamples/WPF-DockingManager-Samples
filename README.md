@@ -8,3 +8,12 @@ Repository contains various WPF DockingManager samples
 5. [How to customize the background and foreground of the Close, AutoHide and Menu button in WPF DockingManager?](https://www.syncfusion.com/kb/8844/how-to-customize-the-background-and-foreground-of-the-close-autohide-and-menu-button-in) - Demo
 6. [How to remove space between header and content of TabItem in WPF DockingManager?](https://www.syncfusion.com/kb/8834/how-to-remove-space-between-header-and-content-of-tabitem) - Demo
 7. [How to change the caption alignment of dock window in WPF DockingManager?](https://www.syncfusion.com/kb/8797/how-to-change-the-caption-alignment-of-dock-window-in-dockingmanager) - Demo
+8. [How to collapse the center drag provider of the WPF DockingManager?](https://www.syncfusion.com/kb/8796/how-to-collapse-the-center-drag-provider-of-the-dockingmanager) - Demo
+9. [How to get the notification on dock window resizing of WPF DockingManager?](https://www.syncfusion.com/kb/8795/how-to-get-the-notification-on-dock-window-resizing-of-dockingmanager) - Demo
+10. [How to activate the child window on trying to re-add the same child in WPF DockingManager?](https://www.syncfusion.com/kb/8791/how-to-activate-the-child-window-on-trying-to-re-add-the-same-child-in-dockingmanager) - Demo
+11. [How to hide the drag providers when trying to dock the window in WPF DockingManager?](https://www.syncfusion.com/kb/8788/how-to-hide-the-drag-providers-when-trying-to-dock-the-window-in-dockingmanager) - Demo
+12. [How to bind custom commands to built-in context menu items of document tabitem in WPF DockingManager?](https://www.syncfusion.com/kb/8787/binding-custom-commands-to-built-in-context-menu-items-of-document-tabitem-in) - Demo
+13. [How to customize background and foreground of dock window caption in WPF DockingManager?](https://www.syncfusion.com/kb/8719/how-to-customize-background-and-foreground-of-dock-window-caption-in-dockingmanager) - Demo
+14. [How to customize the header in the TabListContextMenu of WPF DockingManager?](https://www.syncfusion.com/kb/8700/how-to-customize-the-header-in-the-tablistcontextmenu-of-dockingmanager) - Demo
+15. [How to restrict the dockability of child window to client area in WPF DockingManager?](https://www.syncfusion.com/kb/8697/how-to-restrict-the-dockability-of-child-window-to-client-area-in-dockingmanager) - Demo
+16. [How to customize the header of native floatwindow in WPF DockingManager?](https://www.syncfusion.com/kb/8688/how-to-customize-the-header-of-native-floatwindow-in-dockingmanager) - Demo
