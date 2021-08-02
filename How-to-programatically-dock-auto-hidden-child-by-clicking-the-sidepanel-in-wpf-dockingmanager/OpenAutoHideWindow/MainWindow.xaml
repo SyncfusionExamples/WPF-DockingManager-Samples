@@ -1,0 +1,21 @@
+﻿<syncfusion:ChromelessWindow
+    x:Class="OpenAutoHideWindow.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:OpenAutoHideWindow"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    Title="DockingManager" WindowState="Normal" WindowStartupLocation="CenterScreen"
+    Width="525"
+    Height="350"
+    mc:Ignorable="d">
+    <Grid>
+        <syncfusion:DockingManager x:Name="DockingManager1">
+            <ContentControl x:Name="leftpanel" syncfusion:DockingManager.Header="Docking Left" syncfusion:DockingManager.SideInDockedMode= "Left" />
+            <ContentControl x:Name="rightpanel" syncfusion:DockingManager.Header="Docking Right"  syncfusion:DockingManager.SideInDockedMode= "Right"/>
+            <ContentControl x:Name="bottompanel" syncfusion:DockingManager.Header="Docking Bottom"  syncfusion:DockingManager.SideInDockedMode="Bottom" />
+        </syncfusion:DockingManager>
+    </Grid>
+</syncfusion:ChromelessWindow>

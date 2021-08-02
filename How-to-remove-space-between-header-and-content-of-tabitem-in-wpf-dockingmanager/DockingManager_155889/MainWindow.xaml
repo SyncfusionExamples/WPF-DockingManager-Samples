@@ -1,0 +1,25 @@
+﻿<Window x:Class="DockingManager_155889.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="MainWindow" Height="350" Width="525"  >
+    <Grid>
+        <syncfusion:DockingManager x:Name="Docking" UseDocumentContainer="True" syncfusion:SkinStorage.VisualStyle="Metro">                    
+            <ContentControl syncfusion:DockingManager.Header="Dock1"
+                            Background="Brown"
+                            syncfusion:DockingManager.State="Document">
+                <TextBlock Background="Brown"></TextBlock>
+            </ContentControl>
+
+            <ContentControl syncfusion:DockingManager.Header="Dock2"
+                            syncfusion:DockingManager.State="Document">
+                <TextBlock Background="Green" ></TextBlock>
+            </ContentControl>
+
+            <ContentControl syncfusion:DockingManager.Header="Dock3"
+                            syncfusion:DockingManager.State="Document">
+                <TextBlock Background="Red"></TextBlock>
+            </ContentControl>
+        </syncfusion:DockingManager>
+    </Grid>
+</Window>

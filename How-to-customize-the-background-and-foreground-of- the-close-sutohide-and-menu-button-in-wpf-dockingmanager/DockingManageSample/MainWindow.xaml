@@ -1,0 +1,236 @@
+﻿<Window xmlns:syncfusion="http://schemas.syncfusion.com/wpf"  x:Class="DockingManageSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DockingManageSample"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="DockingManager" Height="350" Width="525">
+    <Window.Resources>
+        
+        <SolidColorBrush x:Key="CloseButtonBackground" Color="Red"/>
+        <SolidColorBrush x:Key="CloseButtonForeground" Color="Yellow"/>
+        <SolidColorBrush x:Key="AutoHideButtonBackground" Color="Yellow"/>
+        <SolidColorBrush x:Key="AutoHideButtonForeground" Color="Red"/>
+        <SolidColorBrush x:Key="MenueButtonBackground" Color="Blue"/>
+        <SolidColorBrush x:Key="MenuButtonForeground" Color="White"/>
+        <SolidColorBrush x:Key="MouseOverCloseButtonBackground" Color="Blue"/>
+        <SolidColorBrush x:Key="MouseOverCloseButtonForeground" Color="White"/>
+        <SolidColorBrush x:Key="MouseOverAutoHideButtonBackground" Color="Black"/>
+        <SolidColorBrush x:Key="MouseOverAutoHideButtonForeground" Color="Yellow"/>
+        <SolidColorBrush x:Key="MouseOverMenueButtonBackground" Color="Red"/>
+        <SolidColorBrush x:Key="MouseOverMenuButtonForeground" Color="White"/>
+
+        <SolidColorBrush x:Key="Default.AwlKeyImg" Color="#000000" />
+        <SolidColorBrush x:Key="Default.AwlKeyImgFocused" Color="#FFFFFF" />
+        <SolidColorBrush x:Key="Default.AwlKeyImgDisable" Color="#808080" />
+        <SolidColorBrush x:Key="Default.AwlKeyImgDisableFocused" Color="#D3D3D3" />
+        <SolidColorBrush x:Key="Default.FlatKeyBrush" Color="#FF000000" />
+        <SolidColorBrush x:Key="Default.FlatKeyBrushDisable" Color="Gray" />
+        <SolidColorBrush x:Key="Default.FlatKeyBrushFocused" Color="#FFD3D3D3" />
+        <SolidColorBrush x:Key="Default.ButtonFocused" Color="#FF9CB6E7" />
+        <SolidColorBrush x:Key="Default.ButtonFocusedBorder" Color="#FF3C5AAA" />
+        <SolidColorBrush x:Key="Default.ButtonOver" Color="#ECE9D8" />
+        <SolidColorBrush x:Key="Default.ButtonOverBorder" Color="#8C867B" />
+    </Window.Resources>
+    <Grid>
+        <syncfusion:DockingManager x:Name="SyncDockingManager" >
+            <syncfusion:DockingManager.CloseButtonTemplate>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <StackPanel>
+                        <Border x:Name="brdBack" Width="15" Height="15" Margin="0,0,1,1" BorderThickness="1"
+                    BorderBrush="Transparent" Background="{StaticResource CloseButtonBackground}">
+                            <Path Name="pathButton" SnapsToDevicePixels="False" Stretch="Fill" StrokeThickness="1.5"
+					Stroke="{StaticResource CloseButtonForeground}"
+					Data="M109,51 L216,142 M215,52 L109,142"
+					HorizontalAlignment="Center" VerticalAlignment="Center" Width="9" Height="8"/>
+                        </Border>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="brdBack" Property="Background" Value="{StaticResource MouseOverCloseButtonBackground}"/>
+                            <Setter TargetName="brdBack" Property="BorderBrush" Value="{StaticResource Default.ButtonOverBorder}"/>
+                            <Setter TargetName="pathButton" Property="Stroke" Value="{StaticResource MouseOverCloseButtonForeground}" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Path=IsTemplateParenKeyboardFocusWithin
+								, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Syncfusion:DockHeaderPresenter}}}"
+							  Value="True" >
+                            <Setter TargetName="pathButton" Property="Stroke" Value="{StaticResource Default.AwlKeyImgFocused}"/>
+                        </DataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource Self}}"
+								Value="True"/>
+                                <Condition Binding="{Binding Path=IsTemplateParenKeyboardFocusWithin
+									, RelativeSource={RelativeSource FindAncestor
+									, AncestorType={x:Type Syncfusion:DockHeaderPresenter}}}"
+								Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="brdBack" Property="Background" Value="{StaticResource Default.ButtonFocused}"/>
+                            <Setter TargetName="brdBack" Property="BorderBrush" Value="{StaticResource Default.ButtonFocusedBorder}"/>
+                            <Setter TargetName="pathButton" Property="Stroke" Value="{StaticResource Default.AwlKeyImgFocused}" />
+                        </MultiDataTrigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="pathButton" Property="Stroke" Value="{StaticResource Default.FlatKeyBrushDisable}" />
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=IsTemplateParenKeyboardFocusWithin
+									, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Syncfusion:DockHeaderPresenter}}}"
+								Value="True" />
+                                <Condition Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Self}}" Value="False" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="pathButton" Property="Stroke" Value="{StaticResource Default.FlatKeyBrushFocused}" />
+                        </MultiDataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </syncfusion:DockingManager.CloseButtonTemplate>
+            <syncfusion:DockingManager.AwlButtonTemplate>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <StackPanel>
+                        <Border x:Name="brdBack" Margin="0,0,1,1" BorderThickness="1"
+				 BorderBrush="Transparent" Background="{StaticResource AutoHideButtonBackground}" Width="15" Height="15" >
+                            <Canvas Width="15" Height="15" >
+                                <Rectangle Name="AwlBtnImg" Stroke="{StaticResource AutoHideButtonForeground}" StrokeThickness="1" Width="5" Height="7" Canvas.Top="2" Canvas.Left="4" />
+                                <Path Name="AwlInnerShadowBtnImg" SnapsToDevicePixels="True" Stroke="{StaticResource AutoHideButtonForeground}" Fill="{StaticResource AutoHideButtonBackground}" Data="M 7.5 9 L 7.5 2" />
+                                <Path Name="AwlLineBtnImg"  Stroke="{StaticResource AutoHideButtonForeground}" Fill="{StaticResource AutoHideButtonBackground}" Data="M 2 8.5 L 11 8.5" />
+                                <Path Name="AwlBottomLineBtnImg" SnapsToDevicePixels="True" Stroke="{StaticResource AutoHideButtonForeground}" Fill="{StaticResource AutoHideButtonBackground}" Data="M 6.5 9 L 6.5 12" />
+                            </Canvas>
+                        </Border>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="brdBack" Property="Background" Value="{StaticResource MouseOverAutoHideButtonBackground}"/>
+                            <Setter TargetName="brdBack" Property="BorderBrush" Value="{StaticResource Default.ButtonOverBorder}"/>
+                            <Setter TargetName="AwlBtnImg" Property="Stroke" Value="{StaticResource MouseOverAutoHideButtonForeground}"/>
+                            <Setter TargetName="AwlInnerShadowBtnImg" Property="Stroke" Value="{StaticResource MouseOverAutoHideButtonForeground}"/>
+                            <Setter TargetName="AwlLineBtnImg" Property="Stroke" Value="{StaticResource MouseOverAutoHideButtonForeground}"/>
+                            <Setter TargetName="AwlBottomLineBtnImg" Property="Stroke" Value="{StaticResource MouseOverAutoHideButtonForeground}"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Path=IsTemplateParenKeyboardFocusWithin
+							, RelativeSource={RelativeSource FindAncestor
+							, AncestorType={x:Type Syncfusion:DockHeaderPresenter}}}"
+								Value="True" >
+                            <Setter TargetName="AwlBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgFocused}"/>
+                            <Setter TargetName="AwlInnerShadowBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgFocused}"/>
+                            <Setter TargetName="AwlLineBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgFocused}"/>
+                            <Setter TargetName="AwlBottomLineBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgFocused}"/>
+                        </DataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource Self}}"
+								Value="True"/>
+                                <Condition Binding="{Binding Path=IsTemplateParenKeyboardFocusWithin
+									, RelativeSource={RelativeSource FindAncestor
+									, AncestorType={x:Type Syncfusion:DockHeaderPresenter}}}"
+								Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="brdBack" Property="Background" Value="{StaticResource Default.ButtonFocused}"/>
+                            <Setter TargetName="brdBack" Property="BorderBrush" Value="{StaticResource Default.ButtonFocusedBorder}"/>
+
+                            <Setter TargetName="AwlBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgFocused}"/>
+                            <Setter TargetName="AwlInnerShadowBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgFocused}"/>
+                            <Setter TargetName="AwlLineBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgFocused}"/>
+                            <Setter TargetName="AwlBottomLineBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgFocused}"/>
+                        </MultiDataTrigger>
+                        <Trigger Property="IsEnabled" Value="False" >
+                            <Setter TargetName="AwlBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgDisable}" />
+                            <Setter TargetName="AwlInnerShadowBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgDisable}" />
+                            <Setter TargetName="AwlLineBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgDisable}" />
+                            <Setter TargetName="AwlBottomLineBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgDisable}" />
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=IsTemplateParenKeyboardFocusWithin
+							, RelativeSource={RelativeSource FindAncestor
+							, AncestorType={x:Type Syncfusion:DockHeaderPresenter}}}" Value="True" />
+                                <Condition Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Self}}" Value="False" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="AwlBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgDisableFocused}"/>
+                            <Setter TargetName="AwlInnerShadowBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgDisableFocused}"/>
+                            <Setter TargetName="AwlLineBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgDisableFocused}"/>
+                            <Setter TargetName="AwlBottomLineBtnImg" Property="Stroke" Value="{StaticResource Default.AwlKeyImgDisableFocused}"/>
+                        </MultiDataTrigger>
+                        <DataTrigger Binding="{Binding Path=AutoHideVisibility
+                        , RelativeSource={RelativeSource AncestorType={x:Type Syncfusion:DockingManager}}}"
+					  Value="False" >
+                            <Setter TargetName="AwlBtnImg" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="AwlInnerShadowBtnImg" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="AwlLineBtnImg" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="AwlBottomLineBtnImg" Property="Visibility" Value="Collapsed" />
+
+                            <Setter TargetName="brdBack" Property="Margin" Value="0" />
+                            <Setter TargetName="brdBack" Property="BorderThickness" Value="0" />
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </syncfusion:DockingManager.AwlButtonTemplate>
+            <syncfusion:DockingManager.MenuButtonTemplate>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <StackPanel>
+                        <Border x:Name="brdBack" Width="15" Height="15" BorderThickness="1"
+		  BorderBrush="Transparent" Background="{StaticResource MenueButtonBackground}">
+                            <Path Name="pathButton" StrokeThickness="0" Margin="0,-2,0,0"
+				Fill="{StaticResource MenuButtonForeground}" Data="M 2 7 L 6.5 11 L 11 7 Z" />
+                        </Border>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="brdBack" Property="Background" Value="{StaticResource MouseOverMenueButtonBackground}"/>
+                            <Setter TargetName="brdBack" Property="BorderBrush" Value="{StaticResource Default.ButtonOverBorder}"/>
+                            <Setter TargetName="pathButton" Property="Fill" Value="{StaticResource MouseOverMenuButtonForeground}" />
+                        </Trigger>
+                        <DataTrigger Binding="{Binding Path=IsTemplateParenKeyboardFocusWithin
+								, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Syncfusion:DockHeaderPresenter}}}"
+							  Value="True" >
+                            <Setter TargetName="pathButton" Property="Fill" Value="{StaticResource Default.AwlKeyImgFocused}" />
+                        </DataTrigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource Self}}"
+						Value="True"/>
+                                <Condition Binding="{Binding Path=IsTemplateParenKeyboardFocusWithin
+							, RelativeSource={RelativeSource FindAncestor
+							, AncestorType={x:Type Syncfusion:DockHeaderPresenter}}}"
+						Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="brdBack" Property="Background" Value="{StaticResource Default.ButtonFocused}"/>
+                            <Setter TargetName="brdBack" Property="BorderBrush" Value="{StaticResource Default.ButtonFocusedBorder}"/>
+                            <Setter TargetName="pathButton" Property="Fill" Value="{StaticResource Default.AwlKeyImgFocused}"/>
+                        </MultiDataTrigger>
+                        <Trigger Property="IsChecked" Value="True" >
+                            <Setter TargetName="brdBack" Property="Background" Value="{StaticResource Default.ButtonOver}"/>
+                            <Setter TargetName="brdBack" Property="BorderBrush" Value="{StaticResource Default.ButtonOverBorder}"/>
+                            <Setter TargetName="pathButton" Property="Fill" Value="{StaticResource Default.AwlKeyImgFocused}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter	TargetName="pathButton" Property="Fill" Value="{StaticResource Default.FlatKeyBrushDisable}" />
+                        </Trigger>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=IsTemplateParenKeyboardFocusWithin
+									, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Syncfusion:DockHeaderPresenter}}}"
+								Value="True" />
+                                <Condition Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Self}}" Value="False" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="pathButton" Property="Stroke" Value="{StaticResource Default.FlatKeyBrushFocused}" />
+                        </MultiDataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </syncfusion:DockingManager.MenuButtonTemplate>
+            <ContentControl x:Name="SolutionExplorer" syncfusion:DockingManager.Header="Solution Explorer" />
+
+            <ContentControl x:Name="ToolBox" syncfusion:DockingManager.Header="Toolbox" />
+
+            <ContentControl x:Name="Properties" syncfusion:DockingManager.Header="Properties" />
+
+            <ContentControl x:Name="Output" syncfusion:DockingManager.Header="Output"/>
+
+            <ContentControl x:Name="StartPage" syncfusion:DockingManager.Header="Start Page" />
+
+        </syncfusion:DockingManager>
+
+    </Grid>
+</Window>

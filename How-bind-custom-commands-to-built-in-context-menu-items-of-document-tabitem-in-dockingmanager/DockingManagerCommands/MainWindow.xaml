@@ -1,0 +1,15 @@
+﻿<Window x:Class="DockingManagerCommands.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <syncfusion:DockingManager
+               syncfusion:DockingManagerCloseOtherTabsCommand.Command="{Binding CloseAllButThis}" 
+            syncfusion:DockingManagerCloseOtherTabsCommand.CommandParameter="{Binding Path=ActiveWindow,ElementName=Docking}" syncfusion:DockingManagerCloseAllTabsCommand.Command="{Binding CloseAll}"   
+            syncfusion:DockingManagerCloseAllTabsCommand.CommandParameter="{Binding Path=ActiveWindow,ElementName=Docking}" syncfusion:DockingManagerCloseButtonClickCommand.Command="{Binding Close}"    syncfusion:DockingManagerCloseButtonClickCommand.CommandParameter="{Binding Path=ActiveWindow,ElementName=Docking}"  UseDocumentContainer="True"   Name="Docking">
+            <ContentControl Name="Dock1" syncfusion:DockingManager.State="Document" syncfusion:DockingManager.Header="Dock1" ></ContentControl>
+            <ContentControl syncfusion:DockingManager.Header="Dock2" syncfusion:DockingManager.State="Document" ></ContentControl>
+            <ContentControl syncfusion:DockingManager.Header="Dock3" syncfusion:DockingManager.State="Document"></ContentControl>
+        </syncfusion:DockingManager>
+    </Grid>
+</Window>

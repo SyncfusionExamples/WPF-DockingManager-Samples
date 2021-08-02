@@ -1,0 +1,14 @@
+﻿<Window x:Class="HideDockPreview.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <syncfusion:DockingManager DockStateChanged="Docking_DockStateChanged"  Name="Docking">
+            <ContentControl Name="Dock1" syncfusion:DockingManager.Header="Dock1"/>
+            <ContentControl Name="Dock2" syncfusion:DockingManager.Header="Dock2"/>
+            <ContentControl Name="Dock3" syncfusion:DockingManager.Header="Dock3"/>
+            <ContentControl Name="Dock4" syncfusion:DockingManager.Header="Dock4"/>
+            <ContentControl Name="Dock5" syncfusion:DockingManager.Header="Dock5"/>
+        </syncfusion:DockingManager>
+    </Grid>
+</Window>

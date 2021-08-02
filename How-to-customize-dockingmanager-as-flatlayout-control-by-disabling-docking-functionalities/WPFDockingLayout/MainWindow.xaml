@@ -1,0 +1,69 @@
+﻿<Window x:Class="WPFDockingLayout.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFDockingLayout"
+        
+        xmlns:sfskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+        sfskin:SfSkinManager.VisualStyle="Office2016Colorful"
+        mc:Ignorable="d" WindowState="Maximized"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        
+        Title="DockingLayout" Height="350" Width="525">
+    <Grid>
+        <syncfusion:DockingManager local:DockingLayout.EnableFlatLayout="True" UseDocumentContainer="True" >
+
+            <ContentControl syncfusion:DockingManager.Header="Essential WPF" syncfusion:DockingManager.SideInDockedMode="Top" syncfusion:DockingManager.DesiredHeightInDockedMode="150">
+                <TextBlock FontSize="15" FontFamily="Calibri" TextWrapping="Wrap" Text="Essential WPF is a comprehensive collection of over 100+ enterprise-grade WPF components for building modern Desktop applications. It includes all the UI controls that are typically required for building line-of-business (LOB) applications including Tools, Charts, Grids, Gantt, Scheduler, Diagram and much more">.</TextBlock>
+            </ContentControl>
+
+            <ContentControl syncfusion:DockingManager.Header="WPF DockingManager" syncfusion:DockingManager.DesiredHeightInDockedMode="200" syncfusion:DockingManager.SideInDockedMode="Bottom">
+                <TextBlock FontSize="15" FontFamily="Calibri" TextWrapping="Wrap">
+                    The Docking Manager follows an architecture that allows controls to be docked to any part of the window. It has been broadly designed based on  docking features present in Visual Studio 2005. The Docking Manager works on top of all the controls placed inside its tree. It handles the window layout for the user automatically and places controls. Like the DockPanel control , It also uses attached properties to set the controls as docked controls or docked windows. The docked windows can be placed as a group of logically related docked controls. The templates AwlButtonTemplate, MenuButtonTemplate and CloseButtonTemplate are the custom templates applied to the buttons. The HeaderTemplate is applied to the header of the dockingmanager.
+                </TextBlock>
+
+            </ContentControl>
+
+            <ContentControl syncfusion:DockingManager.DesiredWidthInDockedMode="300" syncfusion:DockingManager.Header="Details"
+                  syncfusion:DockingManager.SideInDockedMode="Left">
+                <TextBlock FontSize="15" FontFamily="Calibri" TextWrapping="Wrap">
+                    FlatLayout control can be desinged using the DockingManager control. To achieve this, we have to disable the docking manager functionalities such as drag &amp; drop and AutoHidden.
+                </TextBlock>
+            </ContentControl>
+
+            <ContentControl syncfusion:DockingManager.Header="Docking Manager Features"  syncfusion:DockingManager.State="Document">
+                <Grid>
+                    <FlowDocumentScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <FlowDocument  FontFamily="Calibri" FontSize="14.5" >
+                            <Paragraph FontSize="24" FontFamily="Cambria"  FontWeight="Bold">
+                                Features of DockingManager.
+                            </Paragraph>
+                            <Paragraph>
+                                By default, DockingManager's child can be dockable at any side also the child element can be draggable. In this sample these functiolaities are disabled to provide flatlayout control.
+                            </Paragraph>
+
+                        </FlowDocument>
+                    </FlowDocumentScrollViewer>
+                </Grid>
+            </ContentControl>
+
+            <ContentControl syncfusion:DockingManager.Header="Document Container Features" syncfusion:DockingManager.State="Document">
+                <Grid>
+                    <FlowDocumentScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <FlowDocument  FontFamily="Calibri" FontSize="14.5" >
+                            <Paragraph FontSize="24" FontFamily="Cambria"  FontWeight="Bold">
+                                Features of DocumentContainer in DockingManager.
+                            </Paragraph>
+                            <Paragraph>
+                                Using the TabItemContextMenu user can easily create the Horizontal and Vertical Gropping of TabItems which gives a layout similar to the VS2008 IDE experience but in this sample this functionality has been disabled to provide the FlatLayout control.
+                            </Paragraph>
+
+                        </FlowDocument>
+                    </FlowDocumentScrollViewer>
+                </Grid>
+            </ContentControl>
+          
+        </syncfusion:DockingManager>
+    </Grid>
+</Window>
